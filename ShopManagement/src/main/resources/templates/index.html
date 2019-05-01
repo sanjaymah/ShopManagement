@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- META SECTION -->
+<title>Spring boot Shop management JdbcTemplate, Thymeleaf, JPA Example</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- END META SECTION -->
+<!--  BEGIN STYLE -->
+<style>
+th {
+  background-color: #33C4FF;
+  color: black;
+  border: 1px solid black;
+  padding: 1px;
+}
+
+
+table, td {
+    border: 1px solid black;
+    padding: 1px;
+}
+
+span{
+color : red;
+font-size: small;
+}
+
+</style>
+<!--  END STYLE -->
+
+<script>
+function validateDelete() {
+
+	  var flag = false;
+	  var x = document.getElementById["deletename"].value.trim();
+	  var y = document.getElementById["deleteid"].value.trim();
+	  
+	  if(x == "" || y == "" ){
+		    document.getElementById("errordisplay").innerHTML="Please enter field values";
+		    flag = false;
+	  }else{
+		    document.getElementById("errordisplay").innerHTML="";
+		    flag=true;
+		  
+	  }
+	  
+	  return flag;	  
+	  
+
+	  
+	}
+	
+	
+	
+function validateAdd() {
+
+	  var flag = false;
+	  var a = document.getElementById["addname"].value.trim();
+	  var b = document.getElementById["addcategory"].value.trim();
+	  var c = document.getElementById["addaddress"].value.trim();
+	  var d = document.getElementById["addowner"].value.trim();	  
+	  
+	  if(a == "" || b == "" || c =="" || d=""){
+		    document.getElementById("errordisplay").innerHTML="Please enter field values";
+		    flag = false;
+	  }else{
+		    document.getElementById("errordisplay").innerHTML="";
+		    flag=true;
+		  
+	  }
+	  
+	  return flag;
+	  
+	}	
+
+</script>
+
+
+
+
+</head>
+<body>
+		<div>
+			<h4>Current Shop List</h4>
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Category</th>
+						<th>Address</th>
+						<th>Owner</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="shop : ${shops}">
+						<td th:text="${shop.id}">Text ...</td>
+						<td th:text="${shop.name}">Text ...</td>
+						<td th:text="${shop.category}">Text ...</td>
+						<td th:text="${shop.address}">Text...</td>
+						<td th:text="${shop.owner}">Text...</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	<div>
+	<h4>Add A Shop</h4>
+	<form name="addForm" action="#" th:action="@{/}" method="post" >
+	<table ><tr>
+	<td style="background-color: #33C4FF"><label>Name</label></td><td><input type="text" name="name" id="addname"></input></td>
+	<td style="background-color: #33C4FF"><label>Category</label></td><td><input type="text" name="category" id="addcategory"></input></td>
+	</tr>
+	<tr>
+	<td style="background-color: #33C4FF"><label>Address</label></td><td><input type="text" name="address" id="addaddress"></input></td>
+	<td style="background-color: #33C4FF"><label>Owner</label></td><td><input type="text" name="owner" id="addowner"></input></td>
+	</tr>
+	<tr>
+	<td colspan="4"><center><input type="submit" value="Submit" onsubmit="return validateAdd()"></input></center></td>
+	</tr>
+	</table>
+	</form>
+	</div>
+	<div>
+	<h4>Delete A Shop</h4>
+	<form name="deleteForm" action="/delete" th:action="@{/delete}" method="post" >
+	<table>
+	<tr>
+	<td style="background-color: #33C4FF"><label>Name</label></td><td><input type="text" name="name" id="deletename"></input></td>
+
+	<td style="background-color: #33C4FF"><label>ID</label></td><td><input type="text" name="id" id="deleteid"></input></td>
+	</tr>
+	<tr>
+	<td colspan="4">
+	<center><input type="submit" value="Submit" onsubmit="return validateDelete()"></input></center>
+	</td></tr>
+	</table>
+	</form>
+	</div>
+	<span id="errordisplay" style="color:red;font-size:small;"></span>
+</body>
+</html>
