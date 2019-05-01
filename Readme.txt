@@ -40,3 +40,60 @@ check if data is inserted in shops table
 select * from shops;
 
 2 ) import project in spring tool suite
+Folder - ShopManagement
+
+3 ) open pom.xml
+update maven command to download the necessary jars
+
+4 ) run project by running following file - run as application
+\ShopManagement\src\main\java\com\shopping\ShopManageApp.java
+check if the application starts successfully.
+
+5) open browser. enter the following url
+http://localhost:8080/shops/
+
+If successful, it shows page 
+shop list is displayed.
+
+6 )to add a shop 
+enter - name,category, address, owner
+click on submit
+
+shop gets added in the list
+
+7)to delete a shop
+enter - name, id
+click on submit
+
+if the shopname,id is correct, 
+it will get deleted from the list
+
+
+
+################################################
+
+file details
+1)\ShopManagement\src\main\resources\application.properties
+property file containing various application related properties
+
+2)\ShopManagement\src\main\resources\templates\index.html
+UI screen that gets loaded after clinking the url
+http://localhost:8080/shops/
+
+3)\ShopManagement\src\main\java\com\shopping\ShopManageApp.java
+To run the application
+
+4)\ShopManagement\src\main\java\com\shopping\DataSourceConfig.java
+To create Datasource object
+
+5 )\ShopManagement\src\main\java\com\shopping\controller\ShopController.java
+will contain request mapping - method calls - display , add , delete operations
+
+6 ) \ShopManagement\src\main\java\com\shopping\model\Shop.java
+model class - shop entity
+
+7 )\ShopManagement\src\main\java\com\shopping\service\ShopService.java
+interface containing methods for database operations
+
+8 )\ShopManagement\src\main\java\com\shopping\service\ShopServiceImpl.java
+implementation of above interface
