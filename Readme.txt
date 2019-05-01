@@ -38,3 +38,5 @@ commit;
 
 check if data is inserted in shops table
 select * from shops;
+
+2 ) import project in spring tool suite
