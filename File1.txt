@@ -1,1 +1,10 @@
 The new sample file1 created
+
+
+
+hg
+hgfg
+hf
+hffgh
+gf
+file1
