@@ -1,0 +1,1 @@
+common file in clamav-rc-coverage1 branch
